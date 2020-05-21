@@ -1,9 +1,9 @@
-<%- include('includes/head.ejs') %>
+<%- include('../includes/head.ejs') %>
     <link rel="stylesheet" href="/css/product.css">
 </head>
 
 <body>
-    <%- include('includes/navigation.ejs') %>
+    <%- include('../includes/navigation.ejs') %>
 
     <main>
         <% if (prods.length > 0) { %>
@@ -14,12 +14,12 @@
                             <h1 class="product__title"><%= product.title %></h1>
                         </header>
                         <div class="card__image">
-                            <img src='https://i.ibb.co/3zHNqjc/117524.jpg'
-                                alt="Sneakers">
+                            <img src='<%= product.imageUrl %>'
+                                alt="<%= product.title %>">
                         </div>
                         <div class="card__content">
-                            <h2 class="product__price">110,99 €</h2>
-                            <p class="product__description">Une très belle paire</p>
+                            <h2 class="product__price"><%= product.price %> €</h2>
+                            <p class="product__description"><%= product.description %></p>
                         </div>
                         <div class="card__actions">
                             <button class="btn">Ajouter au panier</button>
@@ -31,4 +31,4 @@
             <h1>Pas de produits trouvé</h1>
         <% } %>
     </main>
-<%- include('includes/end.ejs') %>
+<%- include('../includes/end.ejs') %>
