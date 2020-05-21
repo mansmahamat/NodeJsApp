@@ -31,6 +31,13 @@ exports.getProducts = (req, res, next) => {
         pageTitle: 'Votre panier'
       });
     }
+    
+    exports.getOrders = (req, res, next) => {
+      res.render('shop/orders', {
+        path: '/orders',
+        pageTitle: 'Vos commandes'
+      })
+    }
 
     exports.getCheckout = (req, res, next) => {
       res.render('shop/chekout', {
