@@ -3,9 +3,9 @@ const Cart = require('../models/cart');
 
 exports.getProducts = (req, res, next) => {
     Product.fetchAll()
-    .then(([rows, fieldData]) => {
+    .then(products => {
       res.render('shop/product-list', {
-        prods: rows,
+        prods: products,
         pageTitle: 'Tout les produits',
         path: '/products',
       });
@@ -33,9 +33,9 @@ exports.getOneProduct = (req, res, next) => {
 
   exports.getIndex = (req, res, next) => {
     Product.fetchAll()
-    .then(([rows, fieldData]) => {
+    .then(products => {
       res.render('shop/index', {
-        prods: rows,
+        prods: products,
         pageTitle: 'Shop',
         path: '/'
       });
