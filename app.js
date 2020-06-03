@@ -15,15 +15,14 @@ app.set('views', 'views');
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
-    User.findById('5ed7992f142a82e304784855')
+  User.findById('5ed7992f142a82e304784855')
     .then(user => {
-        req.user = new User(user.name, user.email, user.cart, user._id);
-        next();
+      req.user = new User(user.name, user.email, user.cart, user._id);
+      next();
     })
     .catch(err => console.log(err));
 });
@@ -33,7 +32,6 @@ app.use(shopRoutes);
 
 app.use(errorController.get404);
 
-mongoConnect( () => {
-
-    app.listen(3000);
+mongoConnect(() => {
+  app.listen(3000);
 });
