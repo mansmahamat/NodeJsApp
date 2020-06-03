@@ -19,11 +19,11 @@ exports.getProducts = (req, res, next) => {
 exports.getOneProduct = (req, res, next) => {
   const prodId = req.params.productId;
   Product.findById(prodId)
-  .then(([rows, fieldData ]) => {
+  .then( product => {
     res.render('shop/product-detail',{
+      product : product,
       pageTitle: 'product.title',
-      path: '/products',
-      product : rows[0]
+      path: '/products'
     });
   })
   .catch(err => {
